@@ -31,3 +31,19 @@ Resume:
 - qué has cambiado;
 - por qué;
 - qué podría mejorarse más adelante.
+
+# Formato de respuesta
+
+Sé breve y proporcional a la complejidad del cambio.
+
+Prioriza:
+
+- decisión recomendada;
+- archivos afectados;
+- riesgos importantes;
+- tests necesarios;
+- dudas que bloqueen la implementación.
+
+No repitas información ni desarrolles casos evidentes.
+
+Para cambios pequeños, limita el análisis a unas 250 palabras. Amplíalo únicamente cuando el problema sea complejo o el usuario lo solicite.
