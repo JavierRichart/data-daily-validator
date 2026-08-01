@@ -13,7 +13,10 @@ class RequiredFieldsValidator(BaseValidator):
 
         for _, row in dataframe.iterrows():
             for field in self.required_fields:
-                if pd.isna(row[field]) or row[field]=="":
+                value = row[field]
+                if pd.isna(value) or (
+                    isinstance(value, str) and value.strip() == ""
+                ):
                     errors.append(
                         ValidationResult(
                             closure_id=row["closure_id"],
@@ -21,7 +24,7 @@ class RequiredFieldsValidator(BaseValidator):
                             validation_name="Campo obligatorio vacío",
                             severity="ERROR",
                             field=field,
-                            current_value=row[field],
+                            current_value=value,
                             expected_value="Valor obligatorio",
                             message=f"El campo '{field}' está vacío.",
                         )
