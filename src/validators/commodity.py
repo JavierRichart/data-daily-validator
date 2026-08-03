@@ -13,7 +13,12 @@ class CommodityValidator(BaseValidator):
         errors = []
 
         for _, row in dataframe.iterrows():
-            if row["commodity"] not in self.valid_commodities:
+            commodity = row["commodity"]
+
+            if self._is_empty(commodity):
+                continue
+
+            if commodity not in self.valid_commodities:
                 errors.append(
                     ValidationResult(
                         closure_id=row["closure_id"],
@@ -21,9 +26,13 @@ class CommodityValidator(BaseValidator):
                         validation_name="Commodity no válida",
                         severity="ERROR",
                         field="commodity",
-                        current_value=row["commodity"],
+                        current_value=commodity,
                         expected_value=self.valid_commodities,
-                        message=f"Commodity no válida: {row['commodity']}",
+                        message=f"Commodity no válida: {commodity}",
                     )
                 )
         return errors
+
+    @staticmethod
+    def _is_empty(value: object) -> bool:
+        return pd.isna(value) or (isinstance(value, str) and value.strip() == "")

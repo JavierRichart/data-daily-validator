@@ -1,4 +1,4 @@
-closure_id,closure_date,commodity,book,company_name,connection_point,volume,price,currency
-1,2026-07-24,GAS,GAS_SPOT,ACME,P001,100,45.5,EUR
-2,2026-07-24,POWER,POWER_FORWARD,ENERGY LTD,P002,250,72.3,EUR
-3,2026-07-24,GAS,GAS_SPOT,ACME,P003,150,48.1,EUR
+closure_id,closure_date,commodity,book,company_name,connection_point,volume,price,currency,contract_date,contract_start_date,contract_end_date
+1,2026-07-24,GAS,GAS_SPOT,COMPANY_A,P001,100,45.5,EUR,2026-07-24,2026-01-01,2026-12-31
+2,2026-07-24,POWER,POWER_FORWARD,COMPANY_B,P002,250,72.3,EUR,2026-07-24,2026-01-01,2026-12-31
+3,2026-07-24,GAS,GAS_SPOT,COMPANY_A,P003,150,48.1,EUR,2026-07-24,2026-01-01,2026-12-31
